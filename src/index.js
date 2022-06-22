@@ -52,7 +52,6 @@ module.exports = function toReadable(number) {
     } else if (parseNumbers.length === 2) {
         result = getZeroToNintyNine(parseNumbers);
     } else {
-        // result = nameOneToTwenty[number];
         result = getZeroToNintyNine(number);
     }
     return result;
