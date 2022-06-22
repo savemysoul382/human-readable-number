@@ -45,19 +45,20 @@ module.exports = function toReadable(number) {
         let sub_result = '';
 
         sub_result += `${nameOneToTwenty[parseNumbers[0]]} hundred`;
-        const twoLastNumbers = getOneToNintyNine(parseNumbers.slice(1).replace(/^0+/, ''));
+        const twoLastNumbers = getZeroToNintyNine(parseNumbers.slice(1).replace(/^0+/, ''));
         sub_result += twoLastNumbers !== '' ? ` ${twoLastNumbers}` : '';
         result = sub_result;
 
     } else if (parseNumbers.length === 2) {
-        result = getOneToNintyNine(parseNumbers);
+        result = getZeroToNintyNine(parseNumbers);
     } else {
-        if (number == 0) return 'zero';
-        result = nameOneToTwenty[number];
+        // result = nameOneToTwenty[number];
+        result = getZeroToNintyNine(number);
     }
     return result;
 
-    function getOneToNintyNine(number_string) {
+    function getZeroToNintyNine(number_string) {
+        if (number == 0) return 'zero';
         if (!number_string || number_string.length === 0) return '';
         if (number_string <= 20) {
             return nameOneToTwenty[number_string];
